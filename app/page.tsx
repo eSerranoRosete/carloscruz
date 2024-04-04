@@ -392,7 +392,7 @@ export default function Home() {
               maximizar tus ganancias mientras aseguras un futuro financiero
               sólido y próspero. ¡Únete hoy al camino hacia el éxito financiero
               y descubre nuevas oportunidades que te llevarán más cerca de tus
-              metas!"
+              metas!
             </motion.p>
             <Button className="gap-2 w-fit m-auto" size="lg">
               Agenda una Llamada
