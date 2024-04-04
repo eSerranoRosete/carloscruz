@@ -14,17 +14,17 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div>
-      <header className="absolute w-full">
+      <header className="absolute w-full hidden md:block">
         <nav className="container w-full flex items-center justify-between py-4">
           <Link href="/" className="font-bold text-md">
             Carlos Cruz
           </Link>
           <ul className="flex items-center gap-8 text-sm">
             <li>
-              <Link href="/">Acerca De</Link>
+              <Link href="#about">Acerca De</Link>
             </li>
             <li>
-              <Link href="/">Metodología</Link>
+              <Link href="#methodology">Metodología</Link>
             </li>
             <li>
               <Link href="/">Experiencia</Link>
@@ -42,10 +42,10 @@ export default function Home() {
       </header>
       <main className="w-full">
         <section className="w-full h-full min-h-dvh bg-muted flex items-center">
-          <div className="h-4/6 container grid grid-cols-2 gap-10">
+          <div className="h-4/6 container grid md:grid-cols-2 gap-10">
             <div className="max-w-xl flex flex-col gap-10 h-full">
               <motion.h1
-                className="text-6xl mt-20"
+                className="text-5xl md:text-6xl mt-20"
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.1, duration: 0.5 }}
@@ -122,20 +122,18 @@ export default function Home() {
 
         <section>
           <div className="bg-dark rounded-xl py-20 container flex items-center relative overflow-clip">
-            <div className="flex items-center justify-between max-w-6xl m-auto gap-32 relative z-10 w-full">
-              <motion.img
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
+            <div className="flex flex-col md:flex-row items-center justify-between max-w-6xl m-auto gap-10 md:gap-32 relative z-10 w-full">
+              <img
                 src="/talk.png"
                 alt="Carlos Cruz giving a finance talk"
-                className="w-full max-w-md aspect-square object-cover object-center rounded-xl"
+                className="w-full max-w-md aspect-square object-cover object-center rounded-xl hover:scale-105 duration-500"
               />
               <div className="max-w-lg flex flex-col gap-10">
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
                   className="bg-[#2D2D2D] text-zinc-200 w-fit px-6 py-2 text-sm rounded-full translate-y-1/2"
                 >
                   La manera inteligente de invertir
@@ -144,7 +142,8 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
-                  className="text-3xl text-dark-foreground"
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl text-dark-foreground"
                 >
                   Ofrezco Asesoramiento Financiero Especializado en
                   Diversificación de Inversiones para Maximizar Rendimientos y
@@ -154,6 +153,7 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
+                  viewport={{ once: true }}
                   className="text-lg text-zinc-400"
                 >
                   Utilizando un enfoque personalizado, diversifico las
@@ -164,6 +164,7 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
+                  viewport={{ once: true }}
                 >
                   <Button className="gap-2 w-fit" size="lg">
                     Agenda una Llamada
@@ -179,15 +180,16 @@ export default function Home() {
 
         <div className="my-20" />
 
-        <section>
+        <section id="about">
           <div className="rounded-xl py-20 container flex items-center">
-            <div className="grid grid-cols-2 max-w-6xl m-auto gap-5 relative w-full h-full items-stretch">
+            <div className="grid md:grid-cols-2 max-w-6xl m-auto gap-5 relative w-full h-full items-stretch">
               <div className="max-w-lg flex flex-col gap-10 h-full py-20">
                 <motion.h2
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.1, duration: 0.5 }}
-                  className="text-3xl"
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl"
                 >
                   Más de 20 Años Ayudando a las Personas y Empresas a
                   Diversificar.
@@ -196,6 +198,7 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
+                  viewport={{ once: true }}
                   className="text-lg"
                 >
                   He ganado la confianza de miles de inversionistas en México,
@@ -209,6 +212,7 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
+                  viewport={{ once: true }}
                 >
                   <Button className="gap-2 w-fit" size="lg" variant="outline">
                     Ver más recursos
@@ -216,13 +220,8 @@ export default function Home() {
                   </Button>
                 </motion.div>
               </div>
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="w-full h-full grid grid-cols-3 gap-4"
-              >
-                <div className="w-full h-full col-span-2 bg-[url('/videoCover.png')] bg-cover bg-center rounded-xl flex items-center justify-center">
+              <div className="w-full h-full grid md:grid-cols-3 gap-4">
+                <div className="w-full h-full col-span-2 aspect-square md:aspect-auto bg-[url('/videoCover.png')] bg-cover bg-center rounded-xl flex items-center justify-center hover:scale-105 transition-all cursor-pointer duration-500">
                   <svg
                     width="53"
                     height="53"
@@ -239,111 +238,124 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="w-full h-full  bg-[url('/conference2.jpeg')] bg-cover bg-center rounded-xl"></div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
 
         <div className="my-20" />
 
-        <section className="w-full container rounded-xl bg-muted p-10 grid grid-cols-2 gap-10 relative overflow-clip">
-          <div className="w-full h-full bg-[url('/conference2.jpeg')] bg-cover bg-center rounded-xl relative z-10"></div>
-          <div className="relative z-10">
-            <div className="flex flex-col gap-10 h-full py-10">
-              <motion.h2
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                className="text-3xl max-w-xl"
-              >
-                Descubre Cómo Puedo Ayudarte a Alcanzar tus Metas de Prosperidad
-                Financiera.
-              </motion.h2>
+        <section
+          id="methodology"
+          className="w-full min-h-dvh flex items-center"
+        >
+          <div className="w-full container rounded-xl bg-muted p-10 grid md:grid-cols-2 gap-10 relative overflow-clip">
+            <div className="w-full h-full bg-[url('/conference2.jpeg')] bg-cover bg-center rounded-xl relative z-10"></div>
+            <div className="relative z-10">
+              <div className="flex flex-col gap-10 h-full py-10">
+                <motion.h2
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="text-2xl md:text-3xl max-w-xl"
+                >
+                  Descubre Cómo Puedo Ayudarte a Alcanzar tus Metas de
+                  Prosperidad Financiera.
+                </motion.h2>
 
-              <hr className="bg-foreground h-0.5" />
-              <div className="w-full grid grid-cols-3 gap-6">
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="flex flex-col gap-4"
-                >
-                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
-                    <HeadsetIcon className="w-16 m-auto text-primary" />
-                  </div>
-                  <h3 className="font-semibold leading-tight">
-                    Atención <br /> Personalizada
-                  </h3>
-                  <p className="text-muted-foreground">
-                    No hay dos colores iguales, igual que en las finanzas; cada
-                    situación es única. Analizaré tu caso para brindarte ayuda
-                    precisa y oportuna.
-                  </p>
-                </motion.div>
-                <motion.div
-                  initial={{ y: 30, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
-                  className="flex flex-col gap-4"
-                >
-                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
-                    <RouteIcon className="w-16 m-auto text-primary" />
-                  </div>
-                  <h3 className="font-semibold leading-tight">
-                    Una Ruta <br /> Bien Establecida
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Trabajaré en una solución de inversión personalizada para
-                    ti, asegurando que tu dinero crezca de manera efectiva y
-                    segura.
-                  </p>
-                </motion.div>
+                <hr className="bg-foreground h-0.5" />
+                <div className="w-full grid md:grid-cols-3 gap-6">
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col gap-4"
+                  >
+                    <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                      <HeadsetIcon className="w-16 m-auto text-primary" />
+                    </div>
+                    <h3 className="font-semibold leading-tight">
+                      Atención <br className="hidden md:block" /> Personalizada
+                    </h3>
+                    <p className="text-muted-foreground">
+                      No hay dos colores iguales, igual que en las finanzas;
+                      cada situación es única. Analizaré tu caso para brindarte
+                      ayuda precisa y oportuna.
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col gap-4"
+                  >
+                    <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                      <RouteIcon className="w-16 m-auto text-primary" />
+                    </div>
+                    <h3 className="font-semibold leading-tight">
+                      Una Ruta <br className="hidden md:block" /> Bien
+                      Establecida
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Trabajaré en una solución de inversión personalizada para
+                      ti, asegurando que tu dinero crezca de manera efectiva y
+                      segura.
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ y: 30, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col gap-4"
+                  >
+                    <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                      <TrendingUpIcon className="w-16 m-auto text-primary" />
+                    </div>
+                    <h3 className="font-semibold leading-tight">
+                      Generar el <br className="hidden md:block" /> Mejor
+                      Rendimiento
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Mi propia trayectoria financiera ha influido en mi
+                      compromiso de ayudar a otros a tomar decisiones más
+                      informadas y seguras en sus inversiones.
+                    </p>
+                  </motion.div>
+                </div>
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
-                  className="flex flex-col gap-4"
+                  viewport={{ once: true }}
                 >
-                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
-                    <TrendingUpIcon className="w-16 m-auto text-primary" />
-                  </div>
-                  <h3 className="font-semibold leading-tight">
-                    Generar el <br /> Mejor Rendimiento
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Mi propia trayectoria financiera ha influido en mi
-                    compromiso de ayudar a otros a tomar decisiones más
-                    informadas y seguras en sus inversiones.
-                  </p>
+                  <Button className="gap-2 w-fit" size="lg">
+                    Agenda una Llamada
+                    <ArrowRightIcon className="w-4" />
+                  </Button>
                 </motion.div>
               </div>
-              <motion.div
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-              >
-                <Button className="gap-2 w-fit" size="lg">
-                  Agenda una Llamada
-                  <ArrowRightIcon className="w-4" />
-                </Button>
-              </motion.div>
             </div>
+            <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-110 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
+            <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-90 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
           </div>
-          <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-110 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
-          <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-90 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
         </section>
 
         <div className="my-20" />
 
         <section className="w-full h-full min-h-dvh flex justify-center flex-col">
-          <div className="container grid grid-cols-2 gap-10 max-w-6xl mb-10">
+          <div className="container grid md:grid-cols-2 gap-10 max-w-6xl mb-10">
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
               className="py-10"
             >
-              <h3 className="text-3xl">
+              <h3 className="text-2xl md:text-3xl">
                 Hago Que la Decisión de <br /> Comenzar Hoy, Sea Sencilla.
               </h3>
               <p>
@@ -355,6 +367,7 @@ export default function Home() {
 
           <div className="rounded-md flex flex-col items-center justify-center relative overflow-hidden">
             <InfiniteMovingCards
+              pauseOnHover={false}
               items={testimonials}
               direction="right"
               speed="slow"
@@ -364,12 +377,17 @@ export default function Home() {
 
         <div className="my-20" />
 
-        <section className="w-full bg-dark text-white py-32 flex items-center justify-center text-center relative">
+        <section className="w-full bg-dark text-white py-32 flex items-center justify-center text-center relative overflow-clip">
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
           <div className="max-w-2xl m-auto flex flex-col gap-8">
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1, duration: 0.5 }}
+              viewport={{ once: true }}
               className="bg-[#2D2D2D] text-zinc-200 w-fit px-6 py-2 text-sm rounded-full m-auto"
             >
               La manera inteligente de invertir
@@ -378,7 +396,8 @@ export default function Home() {
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="text-3xl text-dark-foreground max-w-lg m-auto"
+              viewport={{ once: true }}
+              className="text-2xl md:text-3xl text-dark-foreground max-w-lg m-auto"
             >
               Da el Siguiente Paso Hacia una Mejor Alternativa para Invertir.
             </motion.h6>
@@ -386,7 +405,8 @@ export default function Home() {
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-lg text-zinc-400"
+              viewport={{ once: true }}
+              className="md:text-lg text-zinc-400 text-md"
             >
               Explora un enfoque innovador y estratégico para invertir y
               maximizar tus ganancias mientras aseguras un futuro financiero
@@ -402,14 +422,14 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-zinc-900 py-10 text-white text-xs">
-        <div className="container grid grid-cols-3 items-center">
+      <footer className="bg-zinc-900 py-10 text-white text-xs text-center md:text-left">
+        <div className="container grid md:grid-cols-3 items-center gap-4">
           <p>
             <b>Carlos Cruz</b> <br />
             Impulsando tu Potencial Financiero al Máximo.
           </p>
 
-          <ul className="flex items-center gap-8 justify-center">
+          <ul className="flex flex-col md:flex-row items-center gap-1 md:gap-8 justify-center">
             <li>
               <Link href="/">Acerca De</Link>
             </li>
@@ -424,7 +444,7 @@ export default function Home() {
             </li>
           </ul>
 
-          <p className="text-right">contacto@carloscruz.com</p>
+          <p className="md:text-right">contacto@carloscruz.com</p>
         </div>
       </footer>
     </div>

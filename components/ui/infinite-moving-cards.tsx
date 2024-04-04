@@ -90,7 +90,7 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <blockquote
             key={item.name}
-            className="border border-border w-full max-w-sm rounded-xl p-6 flex-shrink-0"
+            className="border border-border w-full max-w-sm rounded-xl p-6 flex-shrink-0 scale-75 md:scale-100"
           >
             <div className="flex items-center justify-between mb-5">
               <div className="w-14 h-14 rounded-full overflow-clip">
