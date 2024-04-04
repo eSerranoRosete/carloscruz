@@ -1,113 +1,474 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { motion } from "framer-motion";
+import {
+  ArrowRightIcon,
+  HeadsetIcon,
+  RouteIcon,
+  TrendingUpIcon,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <div>
+      <header className="absolute w-full">
+        <nav className="container w-full flex items-center justify-between py-4">
+          <Link href="/" className="font-bold text-md">
+            Carlos Cruz
+          </Link>
+          <ul className="flex items-center gap-8 text-sm">
+            <li>
+              <Link href="/">Acerca De</Link>
+            </li>
+            <li>
+              <Link href="/">Metodología</Link>
+            </li>
+            <li>
+              <Link href="/">Experiencia</Link>
+            </li>
+            <li>
+              <Link href="/">Recursos</Link>
+            </li>
+          </ul>
+
+          <Button size="sm" className="gap-2 text-sm">
+            Agenda una Llamada
+            <ArrowRightIcon className="w-4" />
+          </Button>
+        </nav>
+      </header>
+      <main className="w-full">
+        <section className="w-full h-full min-h-dvh bg-muted flex items-center">
+          <div className="h-4/6 container grid grid-cols-2 gap-10">
+            <div className="max-w-xl flex flex-col gap-10 h-full">
+              <motion.h1
+                className="text-6xl mt-20"
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Impulsando tu Potencial Financiero al Máximo.
+              </motion.h1>
+              <motion.p
+                className="text-xl"
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                Te asesoro con herramientas y estrategias para optimizar tus
+                finanzas y alcanzar tus objetivos económicos con confianza y
+                éxito.
+              </motion.p>
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <Button className="gap-2 w-fit" size="lg">
+                  Agenda una Llamada
+                  <ArrowRightIcon className="w-4" />
+                </Button>
+              </motion.div>
+              <hr className="bg-foreground h-0.5 mt-auto" />
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-sm">
+                  <b>50+ </b>
+                  <span className="text-muted-foreground">
+                    Trusted Partners
+                  </span>
+                </p>
+                <img
+                  src="/partners.png"
+                  alt="Partners Logos"
+                  className="w-full"
+                />
+              </motion.div>
+            </div>
+            <div className="w-full grid grid-cols-3 gap-6">
+              <motion.img
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+                src="/portrait.png"
+                alt="Carlos Cruz Potrait Picture"
+                className="w-full h-full object-cover object-center rounded-xl"
+              />
+              <motion.img
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+                src="/conference.png"
+                alt="Carlos Cruz Potrait Picture"
+                className="w-full h-full object-cover object-center rounded-xl col-span-2"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div className="my-20" />
+
+        <section>
+          <div className="bg-dark rounded-xl py-20 container flex items-center relative overflow-clip">
+            <div className="flex items-center justify-between max-w-6xl m-auto gap-32 relative z-10 w-full">
+              <motion.img
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                src="/talk.png"
+                alt="Carlos Cruz giving a finance talk"
+                className="w-full max-w-md aspect-square object-cover object-center rounded-xl"
+              />
+              <div className="max-w-lg flex flex-col gap-10">
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 0.5 }}
+                  className="bg-[#2D2D2D] text-zinc-200 w-fit px-6 py-2 text-sm rounded-full translate-y-1/2"
+                >
+                  La manera inteligente de invertir
+                </motion.div>
+                <motion.h2
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="text-3xl text-dark-foreground"
+                >
+                  Ofrezco Asesoramiento Financiero Especializado en
+                  Diversificación de Inversiones para Maximizar Rendimientos y
+                  Minimizar Riesgos.
+                </motion.h2>
+                <motion.p
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="text-lg text-zinc-400"
+                >
+                  Utilizando un enfoque personalizado, diversifico las
+                  inversiones de mis clientes para proporcionar seguridad
+                  financiera a largo plazo.
+                </motion.p>
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                  <Button className="gap-2 w-fit" size="lg">
+                    Agenda una Llamada
+                    <ArrowRightIcon className="w-4" />
+                  </Button>
+                </motion.div>
+              </div>
+            </div>
+            <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 right-0 translate-x-2/3"></div>
+            <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 right-0 translate-x-2/3"></div>
+          </div>
+        </section>
+
+        <div className="my-20" />
+
+        <section>
+          <div className="rounded-xl py-20 container flex items-center">
+            <div className="grid grid-cols-2 max-w-6xl m-auto gap-5 relative w-full h-full items-stretch">
+              <div className="max-w-lg flex flex-col gap-10 h-full py-20">
+                <motion.h2
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.1, duration: 0.5 }}
+                  className="text-3xl"
+                >
+                  Más de 20 Años Ayudando a las Personas y Empresas a
+                  Diversificar.
+                </motion.h2>
+                <motion.p
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="text-lg"
+                >
+                  He ganado la confianza de miles de inversionistas en México,
+                  EE. UU. y Latinoamérica, mediante eventos de educación
+                  financiera, ayudando a empresas y familias a alcanzar sus
+                  metas. Con amplia experiencia en el mercado bursátil y
+                  extrabursátil, me he posicionado como un líder reconocido en
+                  grupos de inversión.
+                </motion.p>
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <Button className="gap-2 w-fit" size="lg" variant="outline">
+                    Ver más recursos
+                    <ArrowRightIcon className="w-4" />
+                  </Button>
+                </motion.div>
+              </div>
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="w-full h-full grid grid-cols-3 gap-4"
+              >
+                <div className="w-full h-full col-span-2 bg-[url('/videoCover.png')] bg-cover bg-center rounded-xl flex items-center justify-center">
+                  <svg
+                    width="53"
+                    height="53"
+                    viewBox="0 0 53 53"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M26.5 53C41.1355 53 53 41.1355 53 26.5C53 11.8645 41.1355 0 26.5 0C11.8645 0 0 11.8645 0 26.5C0 41.1355 11.8645 53 26.5 53ZM19.25 39.0574L41 26.5L19.25 13.9426L19.25 39.0574Z"
+                      fill="white"
+                    />
+                  </svg>
+                </div>
+                <div className="w-full h-full  bg-[url('/conference2.jpeg')] bg-cover bg-center rounded-xl"></div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        <div className="my-20" />
+
+        <section className="w-full container rounded-xl bg-muted p-10 grid grid-cols-2 gap-10 relative overflow-clip">
+          <div className="w-full h-full bg-[url('/conference2.jpeg')] bg-cover bg-center rounded-xl relative z-10"></div>
+          <div className="relative z-10">
+            <div className="flex flex-col gap-10 h-full py-10">
+              <motion.h2
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="text-3xl max-w-xl"
+              >
+                Descubre Cómo Puedo Ayudarte a Alcanzar tus Metas de Prosperidad
+                Financiera.
+              </motion.h2>
+
+              <hr className="bg-foreground h-0.5" />
+              <div className="w-full grid grid-cols-3 gap-6">
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                    <HeadsetIcon className="w-16 m-auto text-primary" />
+                  </div>
+                  <h3 className="font-semibold leading-tight">
+                    Atención <br /> Personalizada
+                  </h3>
+                  <p className="text-muted-foreground">
+                    No hay dos colores iguales, igual que en las finanzas; cada
+                    situación es única. Analizaré tu caso para brindarte ayuda
+                    precisa y oportuna.
+                  </p>
+                </motion.div>
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                    <RouteIcon className="w-16 m-auto text-primary" />
+                  </div>
+                  <h3 className="font-semibold leading-tight">
+                    Una Ruta <br /> Bien Establecida
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Trabajaré en una solución de inversión personalizada para
+                    ti, asegurando que tu dinero crezca de manera efectiva y
+                    segura.
+                  </p>
+                </motion.div>
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                  className="flex flex-col gap-4"
+                >
+                  <div className="bg-dark w-1/4 aspect-square rounded-xl flex items-center justify-center">
+                    <TrendingUpIcon className="w-16 m-auto text-primary" />
+                  </div>
+                  <h3 className="font-semibold leading-tight">
+                    Generar el <br /> Mejor Rendimiento
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Mi propia trayectoria financiera ha influido en mi
+                    compromiso de ayudar a otros a tomar decisiones más
+                    informadas y seguras en sus inversiones.
+                  </p>
+                </motion.div>
+              </div>
+              <motion.div
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+              >
+                <Button className="gap-2 w-fit" size="lg">
+                  Agenda una Llamada
+                  <ArrowRightIcon className="w-4" />
+                </Button>
+              </motion.div>
+            </div>
+          </div>
+          <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-110 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-muted-foreground scale-90 right-0 translate-x-2/3 -translate-y-1/2 opacity-40"></div>
+        </section>
+
+        <div className="my-20" />
+
+        <section className="w-full h-full min-h-dvh flex justify-center flex-col">
+          <div className="container grid grid-cols-2 gap-10 max-w-6xl mb-10">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="py-10"
+            >
+              <h3 className="text-3xl">
+                Hago Que la Decisión de <br /> Comenzar Hoy, Sea Sencilla.
+              </h3>
+              <p>
+                Con más de <b>100</b> empresas y clientes satisfechos.
+              </p>
+            </motion.div>
+            <div className="w-full rounded-xl h-full bg-[url('/hands.png')] bg-cover bg-center"></div>
+          </div>
+
+          <div className="rounded-md flex flex-col items-center justify-center relative overflow-hidden">
+            <InfiniteMovingCards
+              items={testimonials}
+              direction="right"
+              speed="slow"
             />
-          </a>
+          </div>
+        </section>
+
+        <div className="my-20" />
+
+        <section className="w-full bg-dark text-white py-32 flex items-center justify-center text-center relative">
+          <div className="max-w-2xl m-auto flex flex-col gap-8">
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="bg-[#2D2D2D] text-zinc-200 w-fit px-6 py-2 text-sm rounded-full m-auto"
+            >
+              La manera inteligente de invertir
+            </motion.div>
+            <motion.h6
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-3xl text-dark-foreground max-w-lg m-auto"
+            >
+              Da el Siguiente Paso Hacia una Mejor Alternativa para Invertir.
+            </motion.h6>
+            <motion.p
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-lg text-zinc-400"
+            >
+              Explora un enfoque innovador y estratégico para invertir y
+              maximizar tus ganancias mientras aseguras un futuro financiero
+              sólido y próspero. ¡Únete hoy al camino hacia el éxito financiero
+              y descubre nuevas oportunidades que te llevarán más cerca de tus
+              metas!"
+            </motion.p>
+            <Button className="gap-2 w-fit m-auto" size="lg">
+              Agenda una Llamada
+              <ArrowRightIcon className="w-4" />
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <footer className="bg-zinc-900 py-10 text-white text-xs">
+        <div className="container grid grid-cols-3 items-center">
+          <p>
+            <b>Carlos Cruz</b> <br />
+            Impulsando tu Potencial Financiero al Máximo.
+          </p>
+
+          <ul className="flex items-center gap-8 justify-center">
+            <li>
+              <Link href="/">Acerca De</Link>
+            </li>
+            <li>
+              <Link href="/">Metodología</Link>
+            </li>
+            <li>
+              <Link href="/">Experiencia</Link>
+            </li>
+            <li>
+              <Link href="/">Recursos</Link>
+            </li>
+          </ul>
+
+          <p className="text-right">contacto@carloscruz.com</p>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </footer>
+    </div>
   );
 }
+
+const testimonials = [
+  {
+    quote:
+      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+    name: "Charles Dickens",
+    location: "London, England",
+    title: "A Tale of Two Cities",
+    avatarUrl: "/avatar.jpg",
+  },
+  {
+    quote:
+      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+    name: "William Shakespeare",
+    location: "Stratford-upon-Avon, England",
+    title: "Hamlet",
+    avatarUrl: "/avatar.jpg",
+  },
+  {
+    quote: "All that we see or seem is but a dream within a dream.",
+    name: "Edgar Allan Poe",
+    location: "Boston, Massachusetts",
+    title: "A Dream Within a Dream",
+    avatarUrl: "/avatar.jpg",
+  },
+  {
+    quote:
+      "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
+    name: "Jane Austen",
+    location: "Steventon, England",
+    title: "Pride and Prejudice",
+    avatarUrl: "/avatar.jpg",
+  },
+  {
+    quote:
+      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+    name: "Herman Melville",
+    location: "New York City, New York",
+    title: "Moby-Dick",
+    avatarUrl: "/avatar.jpg",
+  },
+];
