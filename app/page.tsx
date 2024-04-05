@@ -346,7 +346,7 @@ export default function Home() {
 
         <div className="my-20" />
 
-        <section className="w-full h-full min-h-dvh flex justify-center flex-col">
+        <section className="w-full h-full flex justify-center flex-col">
           <div className="container grid md:grid-cols-2 gap-10 max-w-6xl mb-10">
             <motion.div
               initial={{ y: 30, opacity: 0 }}
@@ -362,7 +362,7 @@ export default function Home() {
                 Con más de <b>100</b> empresas y clientes satisfechos.
               </p>
             </motion.div>
-            <div className="w-full rounded-xl h-full bg-[url('/hands.png')] bg-cover bg-center"></div>
+            <div className="w-full rounded-xl h-full bg-[url('/hands.png')] bg-cover bg-center hidden md:block"></div>
           </div>
 
           <div className="rounded-md flex flex-col items-center justify-center relative overflow-hidden">
@@ -378,11 +378,7 @@ export default function Home() {
         <div className="my-20" />
 
         <section className="w-full bg-dark text-white py-32 flex items-center justify-center text-center relative overflow-clip">
-          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
-          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
-          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
-          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
-          <div className="max-w-2xl m-auto flex flex-col gap-8">
+          <div className="max-w-2xl m-auto flex flex-col gap-8 relative z-10">
             <motion.div
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -419,6 +415,10 @@ export default function Home() {
               <ArrowRightIcon className="w-4" />
             </Button>
           </div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 left-0 -translate-x-2/3 top-0 -translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-110 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
+          <div className="h-full absolute aspect-square rounded-full border border-primary scale-90 right-0 translate-x-2/3 bottom-0 translate-y-1/2"></div>
         </section>
       </main>
 
