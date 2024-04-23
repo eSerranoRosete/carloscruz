@@ -26,7 +26,7 @@ export const NavBar = () => {
 
         <div className="flex items-center gap-2">
           <Link
-            href="https://www.linkedin.com/in/carlos-ilhuilcamina-cruz-ceron-2a9112115/"
+            href="https://www.linkedin.com/in/carlos-cruz-cer%C3%B3n-583904304"
             target="_blank"
           >
             <svg

@@ -64,16 +64,16 @@ export default function Page() {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <p className="text-sm">
-                  <b>50+ </b>
+                <p className="text-sm mb-5">
+                  <b>15+ </b>
                   <span className="text-muted-foreground">
-                    Trusted Partners
+                    Empresas Asesoradas
                   </span>
                 </p>
                 <img
                   src="/partners.png"
                   alt="Partners Logos"
-                  className="w-full"
+                  className="w-full rounded-lg"
                 />
               </motion.div>
             </div>
@@ -185,11 +185,18 @@ export default function Page() {
                 viewport={{ once: true }}
                 className="text-lg"
               >
-                He ganado la confianza de miles de inversionistas en México, EE.
-                UU. y Latinoamérica, mediante eventos de educación financiera,
-                ayudando a empresas y familias a alcanzar sus metas. Con amplia
-                experiencia en el mercado bursátil y extrabursátil, me he
-                posicionado como un líder reconocido en grupos de inversión.
+                Con más de 20 años de liderazgo en empresas de mercadotecnia e
+                inversión, Carlos Cruz ha ganado la confianza de miles de
+                inversionistas en México, Estados Unidos y Latinoamérica. A
+                través de eventos masivos de educación financiera, ha brindado
+                asesoramiento crucial que ha permitido a empresas y familias
+                alcanzar sus metas económicas. Con una trayectoria destacada,
+                Carlos Cruz ha sido galardonado con premios internacionales por
+                su excelencia en el campo de las inversiones. Su profundo
+                conocimiento del mercado bursátil y extrabursátil lo ha
+                posicionado como un referente respetado en el mundo de las
+                finanzas, siendo reconocido como un líder influyente en grupos
+                financieros.
               </motion.p>
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
@@ -207,6 +214,7 @@ export default function Page() {
           secondCol={
             <div className="w-full h-96 md:h-full grid grid-cols-3 gap-4">
               <VideoDialog
+                src="https://utfs.io/f/092a87e7-30ce-4d04-87e5-e94f0b422c24-1aw.mp4"
                 trigger={
                   <div className="w-full h-full col-span-2 md:aspect-auto bg-[url('/videoCover.png')] bg-cover bg-center rounded-xl flex items-center justify-center hover:scale-105 transition-all cursor-pointer duration-500">
                     <svg

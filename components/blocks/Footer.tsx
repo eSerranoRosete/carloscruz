@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, Loader2Icon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
@@ -9,7 +9,33 @@ import { BackgroundBeams } from "../ui/background-beams";
 import { TwoColumnLayout } from "./TwoColumnLayout";
 import { Input } from "../ui/input";
 
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { sendMail } from "@/server/sendMail";
+import { toast } from "sonner";
+
+const formSchema = z.object({
+  name: z.string().nonempty(),
+  email: z.string().email(),
+  phone: z.string().optional(),
+});
+
+type FormSchema = z.infer<typeof formSchema>;
+
 export const Footer = () => {
+  const form = useForm<FormSchema>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const onSubmit = async (data: FormSchema) => {
+    await sendMail({ lead: data });
+
+    toast.success("Email enviado correctamente");
+
+    form.reset();
+  };
+
   return (
     <>
       <section
@@ -60,15 +86,28 @@ export const Footer = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="w-full  max-w-md flex flex-col gap-6 z-10 mt-16 m-auto"
+                className="w-full z-10"
               >
-                <Input placeholder="Nombre: *" />
-                <Input placeholder="Email: *" />
-                <Input placeholder="Teléfono:" />
-                <Button size="lg" className="gap-2 text-sm w-fit">
-                  Enviar
-                  <ArrowRightIcon className="w-4" />
-                </Button>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="w-full  max-w-md flex flex-col gap-6 z-10 mt-16 m-auto"
+                >
+                  <Input placeholder="Nombre: *" {...form.register("name")} />
+                  <Input placeholder="Email: *" {...form.register("email")} />
+                  <Input placeholder="Teléfono:" {...form.register("phone")} />
+                  <Button
+                    size="lg"
+                    className="gap-2 text-sm w-fit"
+                    type="submit"
+                    disabled={form.formState.isSubmitting}
+                  >
+                    {form.formState.isSubmitting && (
+                      <Loader2Icon className="w-4 animate-spin" />
+                    )}
+                    Enviar
+                    <ArrowRightIcon className="w-4" />
+                  </Button>
+                </form>
               </motion.div>
             </>
           }

@@ -1,8 +1,10 @@
 "use client";
+
 import { Container } from "@/components/blocks/Container";
 
 import { ResourceCard } from "@/components/blocks/ResourceCard";
 import { SectionSeparator } from "@/components/blocks/SectionSeparator";
+import { videoResources } from "@/public/resources/resources";
 import { motion } from "framer-motion";
 
 export default function Page() {
@@ -30,37 +32,16 @@ export default function Page() {
           viewport={{ once: true }}
           className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full mt-16"
         >
-          <ResourceCard
-            isNew
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
-          <ResourceCard
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
-          <ResourceCard
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
-          <ResourceCard
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
-          <ResourceCard
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
-          <ResourceCard
-            title="Título del Recurso"
-            description="Descripción del recurso"
-            imgSrc="/conference.png"
-          />
+          {videoResources.map((r, i) => (
+            <ResourceCard
+              videoSrc={r.url}
+              isNew={i === 0}
+              key={r.uid}
+              title={r.title}
+              description={r.description}
+              imgSrc={r.previewUrl}
+            />
+          ))}
         </motion.div>
       </Container>
     </>
