@@ -27,13 +27,13 @@ export const QuestionComponent = ({ form, question }: Props) => {
   const [other, setOther] = useState(false);
   const [date, setDate] = useState<Date>(new Date());
 
-  if (isChildQuestion(question.id)) return null;
-
   useEffect(() => {
     if (question.type === "date") {
       form.setValue(question.id, date.toLocaleDateString());
     }
   }, [date]);
+
+  if (isChildQuestion(question.id)) return null;
 
   return (
     <motion.div
@@ -70,7 +70,7 @@ export const QuestionComponent = ({ form, question }: Props) => {
       )}
 
       {question.children?.map((child) => (
-        <div className="w-full flex flex-col">
+        <div className="w-full flex flex-col" key={child.id}>
           <label className="text-md text-left font-medium">
             {child.question}
           </label>
