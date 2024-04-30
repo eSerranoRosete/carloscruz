@@ -46,8 +46,8 @@ export const NavBar = () => {
           </Link>
 
           <Button size="sm" asChild>
-            <Link href="#contact" className="gap-2 text-sm">
-              Contacto
+            <Link href="/contact" className="gap-2 text-sm">
+              Comienza ahora
               <ArrowRightIcon className="w-4" />
             </Link>
           </Button>

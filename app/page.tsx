@@ -5,6 +5,8 @@ import { ScreenSection } from "@/components/blocks/ScreenSection";
 import { SectionSeparator } from "@/components/blocks/SectionSeparator";
 import { TwoColumnLayout } from "@/components/blocks/TwoColumnLayout";
 import { VideoDialog } from "@/components/blocks/VideoDialog";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BackgroundBeamsLight } from "@/components/ui/background-beams-light";
 import { Button } from "@/components/ui/button";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 import { motion } from "framer-motion";
@@ -19,8 +21,9 @@ import Link from "next/link";
 export default function Page() {
   return (
     <>
-      <ScreenSection className="bg-muted">
+      <ScreenSection>
         <TwoColumnLayout
+          className="z-10 relative"
           size="lg"
           firstCol={
             <div className="max-w-xl flex flex-col gap-10 h-full">
@@ -51,8 +54,8 @@ export default function Page() {
                 viewport={{ once: true }}
               >
                 <Button size="lg" asChild>
-                  <Link href="#contact" className="gap-2 text-sm">
-                    Contacta a Carlos
+                  <Link href="/contact" className="gap-2 text-sm">
+                    Comienza a ahorrar para el futuro
                     <ArrowRightIcon className="w-4" />
                   </Link>
                 </Button>
@@ -101,6 +104,7 @@ export default function Page() {
             </div>
           }
         />
+        <BackgroundBeamsLight />
       </ScreenSection>
       <SectionSeparator />
       <Container id="about" className="bg-dark">
@@ -154,8 +158,8 @@ export default function Page() {
                 viewport={{ once: true }}
               >
                 <Button size="lg" asChild>
-                  <Link href="#contact" className="gap-2 text-sm">
-                    Contacta a Carlos
+                  <Link href="/contact" className="gap-2 text-sm">
+                    Haz que tu dinero trabaje para ti
                     <ArrowRightIcon className="w-4" />
                   </Link>
                 </Button>
@@ -330,7 +334,7 @@ export default function Page() {
                     viewport={{ once: true }}
                   >
                     <Button size="lg" asChild>
-                      <Link href="#contact" className="gap-2 text-sm">
+                      <Link href="/contact" className="gap-2 text-sm">
                         Contacta a Carlos
                         <ArrowRightIcon className="w-4" />
                       </Link>
@@ -367,7 +371,7 @@ export default function Page() {
         />
         <div className="rounded-md flex flex-col items-center justify-center relative overflow-hidden w-full">
           <InfiniteMovingCards
-            pauseOnHover={false}
+            pauseOnHover={true}
             items={testimonials}
             direction="right"
             speed="slow"
